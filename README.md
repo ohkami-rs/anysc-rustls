@@ -7,15 +7,17 @@
 
 ## Usage
 
+See the next section for details.
+
 1. Add to `dependencies`:
   
     ```toml
     [dependencies]
     # ...
-    anysc-rustls = { version = "0.1.0", features = ["(Go to 2.)"] }
+    anysc-rustls = { version = "0.1.0", optional = true }
     ```
 
-2. **Select one of `io_*` feature flags** based on your case:
+2. **Activate one of `io_*` feature flags**:
   
     - `io_tokio` ( `tokio::io` interface, used by:
       [`tokio`](https://github.com/tokio-rs/tokio),
@@ -27,7 +29,7 @@
       [`glommio`](https://github.com/DataDog/glommio),
       etc. )
 
-3. Depending on the use case, activate the inheritied features:
+3. Depending on the use case, enable some inheritied features:
   
     - `aws-lc-rs`
     - `aws_lc_rs`
