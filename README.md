@@ -9,33 +9,33 @@
 
 1. Add to `dependencies`:
   
-  ```toml
-  [dependencies]
-  # ...
-  anysc-rustls = { version = "0.1.0", features = ["(Go to 2.)"] }
-  ```
+    ```toml
+    [dependencies]
+    # ...
+    anysc-rustls = { version = "0.1.0", features = ["(Go to 2.)"] }
+    ```
 
 2. **Select one of `io_*` feature flags** based on your case:
   
-  - `io_tokio` ( `tokio::io` interface, used by:
-    [`tokio`](https://github.com/tokio-rs/tokio),
-    [`nio`](https://github.com/nurmohammed840/nio),
-    etc. )
-  - `io_futures` ( `futures-io` interface, used by:
-    [`async-std`](https://github.com/async-rs/async-std),
-    [`smol`](https://github.com/smol-rs/smol),
-    [`glommio`](https://github.com/DataDog/glommio),
-    etc. )
+    - `io_tokio` ( `tokio::io` interface, used by:
+      [`tokio`](https://github.com/tokio-rs/tokio),
+      [`nio`](https://github.com/nurmohammed840/nio),
+      etc. )
+    - `io_futures` ( `futures-io` interface, used by:
+      [`async-std`](https://github.com/async-rs/async-std),
+      [`smol`](https://github.com/smol-rs/smol),
+      [`glommio`](https://github.com/DataDog/glommio),
+      etc. )
 
 3. Depending on the use case, activate the inheritied features:
   
-  - `aws-lc-rs`
-  - `aws_lc_rs`
-  - `early-data`
-  - `fips`
-  - `logging`
-  - `ring`
-  - `tls12`
+    - `aws-lc-rs`
+    - `aws_lc_rs`
+    - `early-data`
+    - `fips`
+    - `logging`
+    - `ring`
+    - `tls12`
 
 4. Write your code with `anysc-rustls` as with `{tokio, futures}-rustls`.
 
@@ -78,17 +78,17 @@ tls = ...
 
 Here, how we setup the features?
 
-1. `tokio-io = if "tls" ["dep:tokio-rustls"]` and `futures-io = if "tls" ["dep:futures-tls"]`
+1. `tokio-io = if "tls" ["dep:tokio-rustls"]` + `futures-io = if "tls" ["dep:futures-tls"]`
 
-  impossible.
+    impossible.
 
 2. `tls = if "tokio-io" ["dep:tokio-rustls"] else if "futures-io" ["dep:futures-tls"]`
 
-  impossible.
+    impossible.
 
 3. `tls = ["dep:tokio-rustls", "dep:futures-rustls"]`
 
-  works, but one of them must be needless.
+    works, but one of them must be needless.
 
 So it's **impossible to avoid undesired dependencies** in this way.
 
