@@ -13,8 +13,8 @@ keywords      = ["async", "anysc", "rustls", "tls"]
 categories    = ["asynchronous", "cryptography", "network-programming"]
 
 [dependencies]
-tokio-rutls   = { version = "0.26", optional = true, default-features = false }
-futures-rutls = { version = "0.26", optional = true, default-features = false }
+tokio-rustls   = { version = "0.26", optional = true, default-features = false }
+futures-rustls = { version = "0.26", optional = true, default-features = false }
 
 [features]
 # async IO interfaces
