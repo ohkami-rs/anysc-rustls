@@ -1,6 +1,6 @@
 <div align="center">
     <h1><code>anysc-rustls</code></h1>
-    <p>crate-level unification layer for any <code>{async crate}-rustls</code></p>
+    <p>crate-level shim for any <code>{async crate}-rustls</code></p>
 </div>
 
 <br/>
@@ -94,7 +94,7 @@ So it's **impossible to avoid undesired dependencies** in this way.
 
 ### Solution
 
-However, it's enabled by a **crate-level unification layer** as this crate:
+However, it's enabled by a **crate-level shim layer** as this crate:
 
 ```toml
 [dependencies]
