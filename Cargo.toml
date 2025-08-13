@@ -1,0 +1,31 @@
+[package]
+name          = "anysc-rustls"
+version       = "0.1.0"
+edition       = "2024"
+authors       = ["kanarus <kanarus786@gmail.com>"]
+documentation = "https://docs.rs/anysc-rustls"
+homepage      = "https://crates.io/crates/anysc-rustls"
+repository    = "https://github.com/ohkami-rs/anysc-rustls"
+readme        = "README.md"
+license       = "MIT"
+description   = "crate-level unification layer for any {async crate}-rustls"
+keywords      = ["async", "anysc", "rustls", "tls"]
+categories    = ["asynchronous", "cryptography", "network-programming"]
+
+[dependencies]
+tokio-rutls   = { version = "0.26", optional = true, default-features = false }
+futures-rutls = { version = "0.26", optional = true, default-features = false }
+
+[features]
+# async IO interfaces
+io_tokio   = ["dep:tokio-rustls"]
+io_futures = ["dep:futures-rustls"]
+# inherited features
+default    = ["aws-lc-rs", "tls12", "logging"]
+aws-lc-rs  = ["tokio-rustls?/aws_lc_rs", "futures-rustls?/aws_lc_rs"]
+aws_lc_rs  = ["aws-lc-rs"] # Alias because Cargo features commonly use `-`
+early-data = ["tokio-rustls?/early-data", "futures-rustls?/early-data"]
+fips       = ["tokio-rustls?/fips", "futures-rustls?/fips"]
+logging    = ["tokio-rustls?/logging", "futures-rustls?/logging"]
+ring       = ["tokio-rustls?/ring", "futures-rustls?/ring"]
+tls12      = ["tokio-rustls?/tls12", "futures-rustls?/tls12"]
