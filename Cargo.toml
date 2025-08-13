@@ -8,7 +8,7 @@ homepage      = "https://crates.io/crates/anysc-rustls"
 repository    = "https://github.com/ohkami-rs/anysc-rustls"
 readme        = "README.md"
 license       = "MIT"
-description   = "crate-level shim for any {async crate}-rustls"
+description   = "crate-level shim layer for any {async crate}-rustls"
 keywords      = ["async", "anysc", "rustls", "tls"]
 categories    = ["asynchronous", "cryptography", "network-programming"]
 

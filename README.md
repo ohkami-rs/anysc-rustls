@@ -1,6 +1,6 @@
 <div align="center">
     <h1><code>anysc-rustls</code></h1>
-    <p>crate-level shim for any <code>{async crate}-rustls</code></p>
+    <p>crate-level shim layer for any <code>{async crate}-rustls</code></p>
 </div>
 
 <br/>
@@ -43,7 +43,7 @@
 
 ## What this does?
 
-**Just reexporting** one of
+**Just reexporting** all the items of one of
 
 - [`tokio-rustls`](https://github.com/rustls/tokio-rustls)
 - [`futures-rustls`](https://github.com/rustls/futures-rustls)
