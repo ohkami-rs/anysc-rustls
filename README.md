@@ -55,11 +55,12 @@ based on the `io_*` feature flag selected.
 The point is that **this is a crate**: it enables,
 for some (maybe niche) crates that
 
-* support multiple async runtimes over **different async IO interfaces** (`tokio::io`, `futures-io`)
+* support multiple async runtimes over **different async IO interfaces**
+  (`tokio::io`, `futures-io`)
 * AND **optionally** provide [rustls](`https://github.com/rustls/rustls`)-powered TLS functionality
   behind a **feature flag** (like `tls`)
 
-to switch `{async crate}-rustls` dependencies **without any needless dependencies**.
+, to switch `{async crate}-rustls` dependencies **without any needless dependencies**.
 
 ### Problem
 
