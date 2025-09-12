@@ -14,7 +14,7 @@ See the next section for details.
     ```toml
     [dependencies]
     # ...
-    anysc-rustls = { version = "0.1.0", optional = true }
+    anysc-rustls = { version = "0.1", optional = true }
     ```
 
 2. **Activate one of `io_*` feature flags**:
@@ -56,7 +56,7 @@ The point is that **this is a crate**: it enables,
 for some (maybe niche) crates that
 
 * support multiple async runtimes over **different async IO interfaces**
-  (`tokio::io`, `futures-io`)
+  (`tokio::io`, `futures::io`)
 * AND **optionally** provide [rustls](`https://github.com/rustls/rustls`)-powered TLS functionality
   behind a **feature flag** (like `tls`)
 
@@ -101,7 +101,7 @@ However, it's enabled by a **crate-level shim layer** as this crate:
 
 ```toml
 [dependencies]
-anysc-rustls = { optional = true, version = "0.1.0" }
+anysc-rustls = { version = "0.1", optional = true }
 
 [features]
 tls = ["dep:anysc-rustls"]
